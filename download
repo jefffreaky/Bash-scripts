@@ -1,0 +1,3 @@
+How to download a script.
+Open in Raw mode.
+curl -o filename https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
