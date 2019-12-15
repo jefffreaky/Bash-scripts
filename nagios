@@ -1,5 +1,6 @@
 #download curl -o nagios https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
 yum update -y;
+dir=`pwd`
 yum install httpd php -y;
 yum install net-tools -y; 
 yum install vim -y;
@@ -16,21 +17,19 @@ wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
 tar -xzvf nagios-4.4.5.tar.gz;
 cd nagios-4.4.5
 yum install perl -y; 
-./configure –-with-command-group=nagcmd
-make all; 
-make install; 
-make install-init;
-make install-config;
-make install-commandmode;
-make install-webconf;
+$PWD/nagios-4.4.5/configure –-with-command-group=nagcmd
+$PWD/nagios-4.4.5/make all;  
+$PWD/nagios-4.4.5/make install; 
+$PWD/nagios-4.4.5/make install-init;
+$PWD/nagios-4.4.5/make install-config;
+$PWD/nagios-4.4.5/make install-commandmode;
+$PWD/nagios-4.4.5/make install-webconf;
 htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 systemctl restart httpd;
-cd ..
-tar -xzvf nagios-p*
-cd nagios-plugins-2.1.1
-./configure –-with-nagios-user=nagios -–with-nagios-group=nagios
-make;
-make install;
+tar -xzvf $PWD/nagios-p*
+$PWD/nagios-plugins-2.1.1./configure –-with-nagios-user=nagios -–with-nagios-group=nagios
+$PWD/nagios-plugins-2.1.1make;
+$PWD/nagios-plugins-2.1.1make install;
 chkconfig –add
 chkconfig nagios on;
 systemctl start nagios;
