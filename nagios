@@ -14,7 +14,7 @@ wget https://sourceforge.net/projects/nagios/files/nagios-4.x/nagios-4.4.5/nagio
 wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
 tar -xzvf nagios-4.4.5.tar.gz;
 cd nagios-4.4.5
-yum install perl-y; 
+yum install perl -y; 
 ./configure –with-command-group=nagcmd
 make all; 
 make install; 
