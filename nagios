@@ -5,7 +5,7 @@ yum install vim -y;
 yum install gcc glibc glibc-common -y;
 yum install gd  gd-devel -y;
 usradd -m nagios; 
-passwd nagios; nagios \n; nagios \n;
+echo -e "nagios\nnagios\n" | passwd nagios
 groupadd nagcmd;
 usermod -a -G nagcmd nagios;
 usermod -a -G nagcmd apache;
