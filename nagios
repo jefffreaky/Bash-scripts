@@ -44,3 +44,5 @@ echo " Usage to change password-> htpasswd /usr/local/nagios/etc/htpasswd.users 
 echo " Change contacts at /usr/local/nagios/etc/objects/contacts.cfg"
 netstat -tulpen;
 echo " If httpd is not listening on 80 then check /etc/httpd/conf/httpd.conf"
+firewall-cmd  –add-port=80/tcp –permanent
+systemctl restart firewalld
