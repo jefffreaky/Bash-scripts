@@ -27,7 +27,7 @@ systemctl restart httpd;
 cd ..
 tar -xzvf nagios-p*
 cd nagios-plugins-2.1.1
-./configure –with-nagios-user=nagios –with-nagios-group=nagios
+./configure –-with-nagios-user=nagios -–with-nagios-group=nagios
 make;
 make install;
 chkconfig –add
