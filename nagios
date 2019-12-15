@@ -1,3 +1,4 @@
+#download curl -o nagios https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
 yum update -y;
 yum install httpd php -y;
 yum install net-tools -y; 
