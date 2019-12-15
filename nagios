@@ -32,6 +32,9 @@ make;
 make install;
 chkconfig –add
 chkconfig nagios on;
+systemctl start nagios;
+systemctl enable nagios
+systemctl enable httpd
 /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 chcon -R -t httpd_sys_content_t /usr/local/nagios/sbin
 chcon -R -t httpd_sys_content_t /usr/local/nagios/share
