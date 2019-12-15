@@ -1,0 +1,42 @@
+yum update -y;
+yum install httpd php -y;
+yum install net-tools -y; 
+yum install vim -y;
+yum install gcc glibc glibc-common -y;
+yum install gd  gd-devel -y;
+usradd -m nagios; 
+passwd nagios; nagios \n; nagios \n;
+groupadd nagcmd;
+usermod -a -G nagcmd nagios;
+usermod -a -G nagcmd apache;
+yum install wget -y;
+wget https://sourceforge.net/projects/nagios/files/nagios-4.x/nagios-4.4.5/nagios-4.4.5.tar.gz
+wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
+tar -xzvf nagios-4.4.5.tar.gz;
+cd nagios-4.4.5
+yum install perl-y; 
+./configure –with-command-group=nagcmd
+make all; 
+make install; 
+make install-init;
+make install-config;
+make install-commandmode;
+make install-webconf;
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin; nagiosadmin \n; nagiosadmin \n;
+systemctl restart httpd;
+cd ..
+tar -xzvf nagios-p*
+./configure –with-nagios-user=nagios –with-nagios-group=nagios
+make;
+make install;
+chkconfig –add
+chkconfig nagios on;
+/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+chcon -R -t httpd_sys_content_t /usr/local/nagios/sbin
+chcon -R -t httpd_sys_content_t /usr/local/nagios/share
+echo " Change nagiosadmin password and verify change at usr/local/nagios/etc/htpasswd.users"
+cat usr/local/nagios/etc/htpasswd.users
+echo " Usage for chagne htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin"
+echo " Change contacts at /usr/local/nagios/etc/objects/contacts.cfg"
+netstat -tulpen;
+echo " If httpd is not listening on 80 then check /etc/httpd/conf/httpd.conf"
