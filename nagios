@@ -1,5 +1,6 @@
 #download curl -o nagios https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
 yum update -y;
+dir=`pwd`
 yum install httpd php -y;
 yum install net-tools -y; 
 yum install vim -y;
@@ -16,7 +17,7 @@ wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
 tar -xzvf nagios-4.4.5.tar.gz;
 cd nagios-4.4.5
 yum install perl -y; 
-./configure –with-command-group=nagcmd
+./configure –-with-command-group=nagcmd
 make all; 
 make install; 
 make install-init;
@@ -47,3 +48,4 @@ netstat -tulpen;
 echo " If httpd is not listening on 80 then check /etc/httpd/conf/httpd.conf"
 firewall-cmd  -–add-port=80/tcp –-permanent
 systemctl restart firewalld
+echo " Change nagios, and nagiosadmin passwords"
