@@ -22,7 +22,7 @@ make install-init;
 make install-config;
 make install-commandmode;
 make install-webconf;
-htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin; nagiosadmin \n; nagiosadmin \n;
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 systemctl restart httpd;
 cd ..
 tar -xzvf nagios-p*
