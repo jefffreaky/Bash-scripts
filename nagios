@@ -1,4 +1,5 @@
 #download curl -o nagios https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
+#. ./nagios; script must be sources
 yum update -y;
 #dir=`pwd`
 yum install httpd php -y;
