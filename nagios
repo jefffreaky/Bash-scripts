@@ -1,7 +1,8 @@
 #download curl -o nagios https://raw.githubusercontent.com/jefffreaky/Bash-scripts/master/nagios
 #. ./nagios; script must be sources
 yum update -y;
-#dir=`pwd`
+dir1=/home/centos/nagios-4.4.5/
+dir2=/home/centos/nagios-2.1.1/
 yum install httpd php -y;
 yum install net-tools -y; 
 yum install vim -y;
@@ -18,13 +19,13 @@ wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
 tar -xzvf nagios-4.4.5.tar.gz;
 cd nagios-4.4.5
 yum install perl -y; 
-./configure –-with-command-group=nagcmd
-make all;  
-make install; 
-make install-init;
-make install-config;
-make install-commandmode;
-make install-webconf;
+/home/centos/nagios-4.4.5/configure –-with-command-group=nagcmd
+/home/centos/nagios-4.4.5/make all;  
+/home/centos/nagios-4.4.5/make install; 
+/home/centos/nagios-4.4.5/make install-init;
+/home/centos/nagios-4.4.5/make install-config;
+/home/centos/nagios-4.4.5/make install-commandmode;
+/home/centos/nagios-4.4.5/make install-webconf;
 htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 systemctl restart httpd;
 tar -xzvf $PWD/nagios-p*
