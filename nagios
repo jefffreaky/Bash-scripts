@@ -47,4 +47,4 @@ echo " Change nagiosadmin password and verify change at usr/local/nagios/etc/htp
 #firewall-cmd  -–add-port=80/tcp –-permanent
 #systemctl restart firewalld
 #echo " Change nagios, and nagiosadmin passwords"
-#Just do it manually. cd only for subshell and . ./nagios not working either.
+#Just do it manually. cd only for subshell and . ./nagios not working either even FQPN not working
