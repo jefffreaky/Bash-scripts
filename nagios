@@ -8,37 +8,36 @@ yum install gcc glibc glibc-common -y;
 yum install gd  gd-devel -y;
 yum install perl -y; 
 yum install wget -y;
-wget https://sourceforge.net/projects/nagios/files/nagios-4.x/nagios-4.4.5/nagios-4.4.5.tar.gz
-wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
+#wget https://sourceforge.net/projects/nagios/files/nagios-4.x/nagios-4.4.5/nagios-4.4.5.tar.gz
+#wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
 tar -xzvf nagios-4.4.5.tar.gz;
-#usradd -m nagios; 
-#echo -e "nagios\nnagios\n" | passwd nagios
-#groupadd nagcmd;
-#usermod -a -G nagcmd nagios;
-#usermod -a -G nagcmd apache;
-#cd nagios-4.4.5
-#./configure –-with-command-group=nagcmd
-#/home/centos/nagios-4.4.5/make all;  
-#/home/centos/nagios-4.4.5/make install; 
-#/home/centos/nagios-4.4.5/make install-init;
-#/home/centos/nagios-4.4.5/make install-config;
-#/home/centos/nagios-4.4.5/make install-commandmode;
-#/home/centos/nagios-4.4.5/make install-webconf;
-#htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-#systemctl restart httpd;
-#tar -xzvf nagios-p*
-#cd nagios-plugins-2.1.1
-#./configure –-with-nagios-user=nagios -–with-nagios-group=nagios
-#make;
-#make install;
-#chkconfig –add
-#chkconfig nagios on;
-#systemctl start nagios;
-#systemctl enable nagios
-#systemctl enable httpd
-#/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
-#chcon -R -t httpd_sys_content_t /usr/local/nagios/sbin
-#chcon -R -t httpd_sys_content_t /usr/local/nagios/share
+usradd -m nagios; 
+echo -e "nagios\nnagios\n" | passwd nagios
+groupadd nagcmd;
+usermod -a -G nagcmd nagios;
+usermod -a -G nagcmd apache;
+cd nagios-4.4.5
+/home/centos/nagios-4.4.5//configure –-with-command-group=nagcmd
+/home/centos/nagios-4.4.5/make all;  
+/home/centos/nagios-4.4.5/make install; 
+/home/centos/nagios-4.4.5/make install-init;
+/home/centos/nagios-4.4.5/make install-config;
+/home/centos/nagios-4.4.5/make install-commandmode;
+/home/centos/nagios-4.4.5/make install-webconf;
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+systemctl restart httpd;
+tar -xzvf nagios-p*
+/home/centos/nagios-2.1.1/configure –-with-nagios-user=nagios -–with-nagios-group=nagios
+/home/centos/nagios-2.1.1/make;
+/home/centos/nagios-2.1.1/make install;
+chkconfig –-add
+chkconfig nagios on;
+systemctl start nagios;
+systemctl enable nagios
+systemctl enable httpd
+/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+chcon -R -t httpd_sys_content_t /usr/local/nagios/sbin
+chcon -R -t httpd_sys_content_t /usr/local/nagios/share
 echo " Change nagiosadmin password and verify change at usr/local/nagios/etc/htpasswd.users"
 #cat usr/local/nagios/etc/htpasswd.users
 #echo " Usage to change password-> htpasswd /usr/local/nagios/etc/htpasswd.users nagiosadmin"
